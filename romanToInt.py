@@ -23,27 +23,20 @@ def romanToInt(s):
     'M': 1000
     }
 
-    integer = 0
-
-    if s in excepted_dict.keys():
-        integer = integer+ excepted_dict[s]
-        return integer
-
-
-    for i in range(len(s)):
-        try:
-            j = i+1
-            key = s[i]+s[j]
-        except Exception as e:
-            key = s[i]
-       
-        if key in excepted_dict.keys():
-            integer = integer+ excepted_dict[key]
-           
+    n=len(s)
+    num = 0
+    for i in range(n):
+        if i < n-1:
+            if dic[s[i]]>= dic[s[i+1]]:
+                
+                num = num + dic[s[i]]
+            else:
+                num = num - dic[s[i]]
         else:
-            integer = integer+sample_dict[s[i]]
+            num = num + dic[s[i]]
 
-    return integer
+    return num
+
 
 s = "MCMXCIV"
 
