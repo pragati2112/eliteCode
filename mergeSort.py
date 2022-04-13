@@ -31,6 +31,7 @@ def mergeSort(nums: List[int]) -> List:
 		return nums
 
 	middle = int(len(nums)/2)
+	
 	left = mergeSort(nums[:middle])
 	right = mergeSort(nums[middle:])
 
