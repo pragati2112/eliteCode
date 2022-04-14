@@ -1,5 +1,10 @@
 from typing import List	
 
+def swap(a,b):
+	c = b
+	b = a
+	a = c
+	return a, b
 
 def selectionSort(nums: List[int]) -> List:
 
@@ -12,8 +17,8 @@ def selectionSort(nums: List[int]) -> List:
 
 			if nums[min_idx] > nums[j]:
 				min_idx = j # found min_idx at j
-
-		nums[i], nums[min_idx] = nums[min_idx], nums[i]	 # swapping
+				nums[min_idx], nums[i] = swap(nums[min_idx], nums[i])
+				# nums[i], nums[min_idx] = nums[min_idx], nums[i]	 # swapping
 
 	return nums
 
