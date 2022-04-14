@@ -50,6 +50,9 @@ def iterativeMergeSort(nums: List[int]) -> List:
 	# increase width of list in each pass by 2
 
 
+	############## That is called bottom up approach ####################  with(nlogn) time complexity. 
+
+
 	width = 1
 	n = len(nums)
 	while width < n:
