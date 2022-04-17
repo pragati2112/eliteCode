@@ -18,6 +18,24 @@ def lengthOfLongestSubstring(string):
     return ans
 
 
+# dictionary = {}
+# sub_pos=0
+        
+#         for i in range(0,len(s)):
+            
+#             if s[i] not in dictionary.values():
+#                 dictionary[i] = s[i]
+            
+#             else:
+#                 idx = s.index(s[i])
+#                 print(idx)
+                
+#                 dictionary.pop(idx, s[i])
+                
+        
+        print(dictionary)
+
+
 
     # your_string_list = list(string)
 
