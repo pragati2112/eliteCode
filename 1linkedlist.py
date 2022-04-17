@@ -65,7 +65,6 @@ class LinkedList():
         current = self.head
 
         while counter < idx-1:
-            print(f'{counter} {idx}')
             current = current.next
             counter+=1
 
