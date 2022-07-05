@@ -36,7 +36,7 @@ def permutationInAString(s, p):
 			chars[p[i]] = 1
 		else:
 			chars[p[i]] +=1
-
+	print('****',chars)
 
 	for window_end in range(len(s)):
 		right_char = s[window_end]
@@ -47,19 +47,25 @@ def permutationInAString(s, p):
 			if chars[right_char] == 0:
 				matched+=1
 
+			print('####', chars)
+
 		if matched == len(chars):
 			return True
 
 		if window_end >=len(p)-1:
 			left_char = s[window_start]
 			window_start+=1
+			print('^^^^', left_char)
 			if left_char in chars:
+				
 				if chars[left_char] == 0:
 					matched-=1
 				chars[left_char] +=1
 
+				print('%%%%%%%%',chars)		
+
 	return False
 
-s="odicf"
-p="dc"
+s="ootreuytyutyutytuecdf"
+p="dce"
 print(permutationInAString(s, p))	
