@@ -5,14 +5,15 @@ def DutchFlagProb(nums):
 	i=0
 
 	while i < len(nums):
-		print(start)
-		if nums[start] > nums[end]:
-			nums[start], nums[end] = nums[end], nums[start] 
+		if nums[i]==0:
+			arr[i], arr[start] = arr[start], arr[i]
+			i+=1
 			start+=1
+		elif nums[i]==1:
+			i+=1
 		else:
-			end-=1	
-
-	return nums
+			arr[i], arr[end] = arr[end], arr[i]
+			end-=1		
 
 
 
