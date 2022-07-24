@@ -1,6 +1,13 @@
 def happyNumber(num):
-	num_arr = [int(x) for x in str(num)]
-	left = 0
+	left, right = num, num
+	while True:
+		slow = find_sqaured_sum(slow)
+		fast = find_sqaured_sum(find_sqaured_sum(fast))
+		if slow==fast:
+			break
+	return slow ==1 		
+
+
 	
 
 def find_sqaured_sum(n):
