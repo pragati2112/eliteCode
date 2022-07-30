@@ -1,21 +1,52 @@
-def cyclicSort(nums):
-	i = 0
-	while i<len(nums):
-		j = nums[i]-1
-		if nums[i]< len(nums) and nums[i] != nums[j]:
-			print(nums[i], nums[j])
-			nums[i], nums[j] = nums[j], nums[i]
-		else:
-			i+=1
+def cycleSort(array):
+	writes = 0
 
-	print(nums)
-	for i in range(len(nums)):
-		if nums[i] !=i:
-			return i
+  # Loop through the array to find cycles to rotate.
+	for cycleStart in range(0, len(array) - 1):
+		item = array[cycleStart]
+		pos=cycleStart
 
-	return len(nums)		
+		# Find where to put the item.
+		for i in range(cycleStart + 1, len(array)):
+			if array[i] < item:
+				pos += 1
+
+		# If the item is already there, this is not a cycle.
+		if pos == cycleStart:
+			continue
+
+		# Otherwise, put the item there or right after any duplicates.
+		while item == array[pos]:
+			pos += 1
+			array[pos], item = item, array[pos]
+			writes += 1
+
+		# Rotate the rest of the cycle.
+		while pos != cycleStart:
+		# Find where to put the item.
+			pos = cycleStart
+
+		for i in range(cycleStart + 1, len(array)):
+			if array[i] < item:
+				pos += 1
+
+		# Put the item there or right after any duplicates.
+		while item == array[pos]:
+			pos += 1
+			array[pos], item = item, array[pos]
+			writes += 1
+	print(array)		
+	return array			
+
+
+
 
 
 def main():
-	print(cyclicSort([4,0,3,1]))
+
+	nums = [4,0,3,1]
+	print(cycleSort(nums))
+
+
+
 main()		
