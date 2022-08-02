@@ -53,11 +53,35 @@ def reverseKelements(head, k):
 	while temp.next is not None and i<k:
 		temp = temp.next
 		i+=1
+	#------------------------------------ 
 
 	if temp is not None:
 		head.hext = reverseKelements(temp, k)
 	return prev	
-	
+
+
+def rotateALinkedList(head, k):
+	current = head
+	length  = 0
+	while current.next is not None:
+		current = current.next
+		length+=1
+
+	current.next = head
+
+
+	# if k > length, do---- k = k%(length+1)
+	jump=length-k
+
+	temp = head
+	while jump:
+		temp = temp.next
+		jump--
+
+	head = temp.next 
+	temp.next = None	
+	return head
+
 
 
 def main():
