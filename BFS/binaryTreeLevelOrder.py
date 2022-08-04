@@ -3,6 +3,7 @@ class Node:
 	def __init__(self, item):
 		self.left = None
 		self.right = None
+		self.next = None
 		self.val = item
 
 
@@ -149,6 +150,71 @@ def find_successor(root, num):
 		if current_node.val==num:
 			break
 	return queue[0] if queue else None			
+
+
+
+def connectSibling(root):
+	queue = deque()
+	queue.append(root)
+	while queue:
+		prev = None
+		level_size = len(queue)
+		for _ in range(level_size):
+			current_node = queue.popleft()
+
+			if prev:
+				prev.next = current_node
+			prev = current_node
+			
+			if current_node.left:
+				queue.append(current_node.left)
+
+			if current_node.right:
+				queue.append(current_node.right)	
+
+
+
+
+
+def connectAllOrderLevel(root):
+	queue = deque()
+	queue.append(root)
+	current_node = None
+	prev = None
+	while queue:
+		current_node = queue.popleft()
+		if prev:
+			prev.next = current_node
+
+		if current_node.left:
+			queue.append(current_node.left)
+
+		if current_node.right:
+			queue.append(current_node.right)	
+
+		prev = current_node
+
+
+def rightViewBinaryTree(root):
+	queue = deque()
+	queue.append(root)
+	result = []
+	while queue:
+		level_size = len(queue)
+
+		for i in range(0, level_size):
+			current_node = queue.popleft()
+
+			# each level last node
+			if i==level_size-1:
+				result.append(current_node)
+			if current_node.left:
+				queue.append(current_node.left)
+			if current_node.right:
+				queue.append(current_node.right)		
+			
+	return result
+
 
 
 
