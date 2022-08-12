@@ -13,9 +13,16 @@ def insertInAMaxHeap(arr, num)
 # max heap ----largest elements are on top
 # min heap----minimum elemets are on top
 
+# when array starts with 1 index--
 # left child index = 2i
 # right child index = 2i+1
 # parent index = i//2
+
+# when array starts with 0 index--
+# left child index = 2i+1
+# right child index = 2i+2
+# parent index = (i//2)-1
+# last node = (n/2)-1
 
 
 def deleteFromAMaxHeap(arr, idx):
