@@ -10,7 +10,7 @@ def calculate_height(root, tree_diameter):
 	left_tree_height = calculate_height(root.left, tree_diameter)
 	right_tree_height = calculate_height(root.right, tree_diameter)
 
-	diameter = left_tree_height + right_tree_height+1
+	diameter = left_tree_height + right_tree_height+2
 
 	tree_diameter = max(tree_diameter, diameter)
 

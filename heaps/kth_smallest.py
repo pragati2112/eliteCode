@@ -30,28 +30,22 @@ def k_largets_nums(nums, k):
 
 
 def point_closest_to_the_origin(points, k):
-	maxheap = []
-	for i in range(k):
-		heappush(maxheap, points[i])
-
-	for i in range(k, len(points)):
-		if distance_from_origin(points[i])<distance_from_origin(maxheap[0]):
-			heappop(maxheap)
-			heappush(maxheap, points[i])
-
-	return list(maxheap)
-
-
-
-
-
-
+	minheap = []
+    res = []
+    for i in range(len(points)):
+        heappush(minheap, (distance_from_origin(points[i]), points[i]))
+    
+    for x in range(k):
+        a,b = heappop(minheap)
+        res.append(b)
+    
+    return res
 
 
 def distance_from_origin(point):
 	# point will be like - [x, y]
 	# we have to figure out Eucleadian distance
-	return sqrt(point[0]*point[0]+point[1]*point[1])
+	return math.sqrt(point[0]*point[0]+point[1]*point[1])
 
 
 

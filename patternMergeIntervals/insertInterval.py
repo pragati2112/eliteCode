@@ -1,24 +1,25 @@
 def merge(intervals, new_interval):
-	merged = []
-	i, start, end = 0,0,1
+	result = []
+	start, end = 0,1
 
-	while i<len(intervals) and intervals[i][end]<=new_interval[start]:
-		merged.append(intervals[i])
-		i+=1
+	# when intervals are sorted-----
+	for i in range(len(intervals)):
+		# non overlapping to the left
+		if new_interval[end]<intervals[i][start]:
+			result.append(new_interval)
+			return result+intervals[i:]	
 
-	while i<len(intervals) and intervals[i][start]<=new_interval[end]:
-		new_interval[start] = min(intervals[i][start], new_interval[start])
-		new_interval[end] = max(intervals[i][end], new_interval[end])
-		i+=1
+		# non overlapping to the right
+		elif new_interval[start]>intervals[i][end]:
+			result.append[intervals[i]]	
 
-	merged.append(new_interval)
+		# if overlapping
+		else:
+			new_interval = [min(new_interval[start], intervals[i][start]),
+			 max(new_interval[end], new_interval[i][end])]	
 
-	while i<len(intervals):
-		merged.append(intervals[i])
-		i+=1
-
-
-	return merged	
+	result.append(new_interval)
+	return result			 
 		
 
 

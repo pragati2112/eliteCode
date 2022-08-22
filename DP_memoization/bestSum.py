@@ -22,9 +22,9 @@ def best_sum(arr, target):
 		new_target = target-arr[i]
 		temp = best_sum(arr, new_target)
 		if temp is not None:
-			temp.append(arr[i])
-			if result is None or len(result)>len(temp):
-				result = temp
+			ans_tmp = [*temp, arr[i]]
+			if result is None or len(result)>len(ans_tmp):
+				result = ans_tmp
 	return result				
 
 
@@ -54,7 +54,6 @@ def best_sum_dp(arr, target):
 		temp = best_sum_dp(arr, new_target)
 		if temp is not None:
 			ans_tmp = [*temp, arr[i]]
-			print(ans_tmp)
 			if result is None or len(result)>=len(ans_tmp):
 				result = ans_tmp
 				# print('***',result)
