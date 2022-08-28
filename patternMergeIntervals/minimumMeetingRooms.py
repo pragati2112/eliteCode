@@ -9,10 +9,11 @@ def intervals(intervals):
 	for meeting in intervals:
 		# meeting[start]>=minHeap[0][end] that means previous meeting is over
 		while len(minHeap)>0 and meeting[start]>=minHeap[0][end]:
-			heappop(meeting)
-		heappush(meeting)
+			heappop(minHeap)
+		heappush(minHeap, meeting)
 
-	min_number = max(min_number, len(minHeap))
+		min_number = max(min_number, len(minHeap))
+
 	return min_number	
 
 

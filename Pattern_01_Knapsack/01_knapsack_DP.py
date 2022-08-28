@@ -35,13 +35,13 @@ def equal_subset_sum_partition(nums):
 	s = int(s/2)
 	n=len(nums)
 
-	dp = [[False for x in range(s+1)] False for y in range(nums)]
+	dp = [[False for x in range(s+1)] False for y in range(n)]
 
 	for i in range(0, n):
 		dp[i][0] = True
 
 	for j in range(0, s+1):
-		dp[0][j]=num[0]==j
+		dp[0][j]=nums[0]==j
 
 	
 	for i in range(0,n):
