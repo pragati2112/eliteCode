@@ -31,7 +31,7 @@ def smallest_rumber_range(lists):
 	
 	for i in range(len(lists)):
 		heappush(minheap, (lists[i][0], 0, lists[i]))
-		currentmax=max(currentmax, _list[i+1])
+		currentmax=max(currentmax, lists[i+1])
 
 	while minheap:
 		num, i , _list = heappop(minheap)
