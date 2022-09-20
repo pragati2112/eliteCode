@@ -6,10 +6,10 @@ class Node():
 
 class LinkedList():
     size = 0
+
     def __init__(self, node: Node):
         self.head = node
         self.size += 1
-
 
     def list_append(self, node: Node):
         current = self.head
@@ -18,12 +18,10 @@ class LinkedList():
         current.next = node
         self.size += 1
 
-
-    def add_to_front(self, node:Node):
-        node.next = self.head 
+    def add_to_front(self, node: Node):
+        node.next = self.head
         self.head = node
         self.size += 1
-
 
     def delete_tail(self):
 
@@ -39,69 +37,59 @@ class LinkedList():
         #     current = current.next
 
         current.next = None
-        self.size-=1
-
+        self.size -= 1
 
     def delete_head(self):
-        self.head = self.head.next 
-        self.size-=1  
-
-
+        self.head = self.head.next
+        self.size -= 1
 
     def delete(self, idx):
         if idx > self.size or idx < 0:
             raise ValueError
 
         if idx == 1:
-            self.delete_head() 
-            return 
+            self.delete_head()
+            return
 
         if idx == self.size:
-            self.delete_tail()  
-            return   
+            self.delete_tail()
+            return
 
-        
         counter = 1
         current = self.head
 
-        while counter < idx-1:
+        while counter < idx - 1:
             current = current.next
-            counter+=1
+            counter += 1
 
-        current.next = current.next.next 
+        current.next = current.next.next
 
-        self.size-=1   
+        self.size -= 1
 
-
-
-    def add(self, node:Node, idx:int):
+    def add(self, node: Node, idx: int):
 
         if idx == 1:
             self.add_to_front(node)
-            return 
+            return
 
         if idx == self.size:
             self.list_append(node)
             return
 
-        
-        if idx > self.size or idx<0:
+        if idx > self.size or idx < 0:
             raise ValueError
 
-        
         counter = 1
         current = self.head
 
-        while counter < idx-1:
+        while counter < idx - 1:
             current = current.next
-            counter+=1
-            
+            counter += 1
+
         node.next = current.next
-        current.next = node 
+        current.next = node
 
-        self.size+=1   
-
-
+        self.size += 1
 
     def show(self):
         current = self.head

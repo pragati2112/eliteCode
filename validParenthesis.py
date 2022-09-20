@@ -8,10 +8,9 @@ def isValid(s):
     while any([op in s for op in sample_list]):
         s = s.replace('()', "").replace('{}', "").replace('[]', "")
 
+    print(s)
 
-    print(s) 
-           
-    if len(s)==0:
-        return True    
+    if len(s) == 0:
+        return True
     else:
         return False

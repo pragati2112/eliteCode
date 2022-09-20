@@ -25,7 +25,6 @@ def sliding_window_template_with_examples(s, p):
         # end pointer grows in the outer loop    
         end += 1
 
-
         # count condition, the condition may be different
         while count > 0:
             '''

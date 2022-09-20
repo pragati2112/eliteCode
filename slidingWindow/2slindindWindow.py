@@ -1,7 +1,7 @@
 # longest-substring-without-repeating-characters/
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
-        
+
         charsSet = set()
         left, right = 0, 0
         result = 0

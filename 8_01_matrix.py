@@ -33,9 +33,10 @@ def update_matrix(mat):
 
             if 0 <= new_row < rows and 0 <= new_column < columns:
                 if result[new_row][new_column] > 1 + distance:
-                    result[new_row][new_column] = 1+distance
+                    result[new_row][new_column] = 1 + distance
                     queue.append([new_row, new_column])
     return result
 
-print(update_matrix([[0,0,0],[0,1,0],[0,0,0]]))
-print(update_matrix([[0,0,0],[0,1,0],[1,1,1]]))
+
+print(update_matrix([[0, 0, 0], [0, 1, 0], [0, 0, 0]]))
+print(update_matrix([[0, 0, 0], [0, 1, 0], [1, 1, 1]]))

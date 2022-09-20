@@ -1,6 +1,3 @@
-
-
-
 def sameTree(root):
     queue = []
     queue.append((p, q))
@@ -8,9 +5,8 @@ def sameTree(root):
     if not p and not q:
         return True
 
-
     while len(queue) > 0:
-        curr_p, curr_q  = queue.pop(0)
+        curr_p, curr_q = queue.pop(0)
 
         if curr_p and not curr_q:
             return False
@@ -32,4 +28,4 @@ def maxDepth(root):
     if root is None:
         return 0
 
-    return max(maxDepth(root.left), maxDepth(root.right))+1     
+    return max(maxDepth(root.left), maxDepth(root.right)) + 1

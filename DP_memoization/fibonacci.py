@@ -13,19 +13,20 @@
 
 
 hash_map = {}
+
+
 def fib_with_dp(n):
+    fib_with_dp.call_counter += 1
 
-	fib_with_dp.call_counter += 1
+    if n in hash_map.keys():
+        return hash_map[n]
 
-	if n in hash_map.keys():
-		return hash_map[n]		
+    if n <= 1:
+        return n
 
-	if n<=1:
-		return n	
-
-	temp = fib_with_dp(n-1)+fib_with_dp(n-2)
-	hash_map[n] = temp
-	return temp
+    temp = fib_with_dp(n - 1) + fib_with_dp(n - 2)
+    hash_map[n] = temp
+    return temp
 
 
 fib_with_dp.call_counter = 0

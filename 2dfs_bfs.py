@@ -1,9 +1,8 @@
 class Node():
-	def __init__(self, item):
-		self.left = None
-		self.right =  None
-		self.item = item
-
+    def __init__(self, item):
+        self.left = None
+        self.right = None
+        self.item = item
 
 
 # in ->  	left root right
@@ -12,52 +11,45 @@ class Node():
 
 
 def dfs(root: Node):
-	if root is None: return []
+    if root is None: return []
 
-	visited = []
-	stack = []
-	stack.append(root)
+    visited = []
+    stack = []
+    stack.append(root)
 
-	while len(stack) > 0 and root is not None:
-		current_node = stack.pop()
-		if current_node.right: 
-			stack.append(current_node.right)
-		if current_node.left: 
-			stack.append(current_node.left)
-		visited.append(current_node.item)
-	print()
-	print('-----------------')
-	return visited
-
-
+    while len(stack) > 0 and root is not None:
+        current_node = stack.pop()
+        if current_node.right:
+            stack.append(current_node.right)
+        if current_node.left:
+            stack.append(current_node.left)
+        visited.append(current_node.item)
+    print()
+    print('-----------------')
+    return visited
 
 
 def bfs(root: Node):
-	if root is None:
-		return []
+    if root is None:
+        return []
 
-	visited = []
-	queue = []
-	queue.append(root)
+    visited = []
+    queue = []
+    queue.append(root)
 
-	while len(queue) > 0 and root is not None:
-		print(len(queue))
-		current_node = queue.pop(0)
-		visited.append(current_node.item)
+    while len(queue) > 0 and root is not None:
+        print(len(queue))
+        current_node = queue.pop(0)
+        visited.append(current_node.item)
 
-		if current_node.left: 
-			queue.append(current_node.left)
-		if current_node.right: 
-			queue.append(current_node.right)
-		
-		
-	print()
-	print('-----------------')
-	return visited
-		
-		
-	
+        if current_node.left:
+            queue.append(current_node.left)
+        if current_node.right:
+            queue.append(current_node.right)
 
+    print()
+    print('-----------------')
+    return visited
 
 
 tree = Node(1)
@@ -74,6 +66,3 @@ root.right = Node('right')
 
 
 print(bfs(tree))
-
-
-
