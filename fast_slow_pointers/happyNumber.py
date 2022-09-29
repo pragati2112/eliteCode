@@ -1,5 +1,5 @@
 def happyNumber(num):
-    left, right = num, num
+    slow, fast = num, num
     while True:
         slow = find_sqaured_sum(slow)
         fast = find_sqaured_sum(find_sqaured_sum(fast))

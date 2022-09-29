@@ -24,7 +24,7 @@ def length_of_cycle(slow):
         current = current.next
         counter += 1
         if slow == current:
-            break;
+            break
     return counter
 
 

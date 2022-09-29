@@ -1,5 +1,5 @@
 def insertInAMaxHeap(arr, num)
-    i = lens(arr) + 1
+    i = len(arr) + 1
     arr[i] = num
     while i > 1:
         parent = i // 2

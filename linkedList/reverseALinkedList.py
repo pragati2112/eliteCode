@@ -17,9 +17,10 @@ def reverse(head):
 def reverseASubList(head, p, q):
     i = 0
     prev = None
+    current = None
     while head.next is not None and i < p - 1:
-        current = prev
-        current = head.next
+        head = head.next
+        current = head
         i += 1
 
     i = 0
@@ -32,13 +33,13 @@ def reverseASubList(head, p, q):
 
 
 def reverseKelements(head, k):
-    prev, current, next = None, head, None
+    prev, current, temp = None, head, None
     count = 0
     while current.next is not None and count < k:
-        next = current.next
+        temp = current.next
         current.next = prev
         prev = current
-        current = next
+        current = temp
         count += 1
 
     # 1,2,3,4,5,6
@@ -56,7 +57,7 @@ def reverseKelements(head, k):
     # ------------------------------------
 
     if temp is not None:
-        head.hext = reverseKelements(temp, k)
+        head.next = reverseKelements(temp, k)
     return prev
 
 
@@ -75,11 +76,38 @@ def rotateALinkedList(head, k):
     temp = head
     while jump:
         temp = temp.next
-        jump - -
+        jump -= 1
 
     head = temp.next
     temp.next = None
     return head
+
+
+
+def reverseKGroup(self, head: Optional[ListNode], k: int) -> Optional[ListNode]:
+   # Check if we need to reverse the group
+    curr = head
+    for _ in range(k):
+        if not curr: return head
+        curr = curr.next
+                
+    # Reverse the group (basic way to reverse linked list)
+    prev = None
+    curr = head
+    for _ in range(k):
+        nxt = curr.next
+        curr.next = prev
+        prev = curr
+        curr = nxt
+    
+    # After reverse, we know that `head` is the tail of the group.
+    # And `curr` is the next pointer in original linked list order
+    head.next = self.reverseKGroup(curr, k)
+    return prev
+
+
+
+
 
 
 def main():

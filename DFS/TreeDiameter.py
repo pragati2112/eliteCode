@@ -17,9 +17,9 @@ def calculate_height(root, tree_diameter):
     return max(left_tree_height, right_tree_height) + 1
 
 
-def pathWithMaxSum(root):
-    left_tree = pathWithMaxSum(root.left)
-    right_tree = pathWithMaxSum(root.right)
+def pathWithMaxSum(root, global_sum):
+    left_tree = pathWithMaxSum(root.left, global_sum)
+    right_tree = pathWithMaxSum(root.right, global_sum)
 
     left_tree = max(left_tree, 0)
     right_tree = max(right_tree, 0)
