@@ -11,8 +11,7 @@ def partition(nums, low, high):
 
             nums[store_idx], nums[i] = nums[i], nums[store_idx]  # then swap
 
-    nums[store_idx + 1], nums[high] = nums[high], nums[
-        store_idx + 1]  # swap pivot after traversing the whole partition from low to high
+    nums[store_idx + 1], nums[high] = nums[high], nums[store_idx + 1]  # swap pivot after traversing the whole partition from low to high
 
     # then return the new position of pivot after pivot swap
     return store_idx + 1
